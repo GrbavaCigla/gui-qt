@@ -19,4 +19,9 @@ void LoginWindow::on_unlock_button_clicked()
     // Login validate stuff
     std::string master_key = ui->masterkey_entry->text().toStdString();
     std::cout << master_key;
+
+    if(1==1){
+        this->hide();
+
+    }
 }

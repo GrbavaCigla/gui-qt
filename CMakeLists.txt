@@ -23,22 +23,29 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #            ${CMAKE_CURRENT_SOURCE_DIR}/path/to/libssl.so)
 #    endif()
 #endif()
+file(GLOB SOURCE_FILES PassManager/*.cpp)
+file(GLOB HEADER_FILES PassManager/*.h)
+file(GLOB DESIGN_FILES PassManager/*.ui)
+file(GLOB PASS_SOURCE lib/passlib/*.cpp)
+file(GLOB PASS_HEADER lib/passlib/*.h)
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 if(ANDROID)
   add_library(PassManager SHARED
-    main.cpp
-    loginwindow.cpp
-    loginwindow.h
-    loginwindow.ui
+    ${SOURCE_FILES}
+    ${HEADER_FILES}
+    ${DESIGN_FILES}
+    ${PASS_SOURCE}
+    ${PASS_HEADER}
   )
 else()
   add_executable(PassManager
-    main.cpp
-    loginwindow.cpp
-    loginwindow.h
-    loginwindow.ui
+    ${SOURCE_FILES}
+    ${HEADER_FILES}
+    ${DESIGN_FILES}
+    ${PASS_SOURCE}
+    ${PASS_HEADER}
   )
 endif()
 
